@@ -19,8 +19,19 @@ Fortsæt derefter med den næste fil.
 
 
 def print_squarenumbers(limit):
-
+    squares = [x * x for x in range(1, int(limit ** 0.5) + 1)]
     pass
+    return squares
+
+def print_squarenumbers2(limit):
+    squares = []
+    for x in range(limit + 1):
+        x = x * x
+        if x >= limit:
+            return squares
+
+        squares.append(x)
 
 
-print_squarenumbers(700)
+
+print (print_squarenumbers2(700))
