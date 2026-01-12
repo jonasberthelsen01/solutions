@@ -19,6 +19,22 @@ Fortsæt derefter med den næste fil.
 
 
 def multiply_numbers(start, multiplier, upper_limit):
+    test = start
+    print (test)
+
+    for x in range(upper_limit):
+        test = test * multiplier
+        if test > upper_limit:
+            break
+        print(test)
+
+def multiply_numbers2(start, multiplier, upper_limit):
+    test = start
+    print (test)
+
+    while test * multiplier <= upper_limit:
+        test = test * multiplier
+        print (test)
     """
     Beginning with the start value, this function prints the current value,
     then multiplies it with multiplier, prints the new current value etc.
@@ -28,3 +44,4 @@ def multiply_numbers(start, multiplier, upper_limit):
 
 
 multiply_numbers(10, 2, 12345)
+multiply_numbers2(10, 2, 12345)
