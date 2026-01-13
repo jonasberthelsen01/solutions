@@ -35,6 +35,7 @@ def maximum(numberlist):
     numberlist.sort()
     return numberlist[-1]
 
+
 print(minimum([6, 2, 7, 3]))  # Should print 2
 print(minimum([8, 17, 8, 3, 5, 1, 3]))  # Should print 1
 print(maximum([6, 2, 7, 3]))  # Should print 7
