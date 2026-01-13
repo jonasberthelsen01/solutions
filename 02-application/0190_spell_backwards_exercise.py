@@ -33,6 +33,10 @@ def spell_backwards(text):
         print(letter , end=".")
     print()
 
+def spell_backwards3(text):
+    """Spells/prints text backwards"""
+    print(text[::-1])
+
 def spell_backwards2(text):
     for letter in range(len(text) -1, -1, -1):
         print(text[letter], end=".")
@@ -43,3 +47,5 @@ def spell_backwards2(text):
 spell("Test")
 spell_backwards("Hello world")  # should print "dlrow olleH"
 spell_backwards2("Hello world")
+print()
+spell_backwards3("Hello world")
