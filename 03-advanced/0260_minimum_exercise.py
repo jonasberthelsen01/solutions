@@ -30,6 +30,19 @@ def minimum(numberlist):
     numberlist.sort()
     return numberlist[0]
 
+def minimum2(numberlist):
+    minimum = numberlist[0]
+    for x in numberlist:
+        if x < minimum:
+            minimum = x
+    return minimum
+
+def maximum2(numberlist):
+    maximum = numberlist[0]
+    for x in numberlist:
+        if x > maximum:
+            maximum = x
+    return maximum
 
 def maximum(numberlist):
     numberlist.sort()
@@ -40,3 +53,8 @@ print(minimum([6, 2, 7, 3]))  # Should print 2
 print(minimum([8, 17, 8, 3, 5, 1, 3]))  # Should print 1
 print(maximum([6, 2, 7, 3]))  # Should print 7
 print(maximum([8, 17, 8, 3, 5, 1, 3]))  # Should print 17
+
+print(minimum2([6, 2, 7, 3]))  # Should print 2
+print(minimum2([8, 17, 8, 3, 5, 1, 3]))  # Should print 1
+print(maximum2([6, 2, 7, 3]))  # Should print 7
+print(maximum2([8, 17, 8, 3, 5, 1, 3]))  # Should print 17
