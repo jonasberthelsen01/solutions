@@ -1,7 +1,7 @@
 import turtle  # this imports a library called "turtle". A library is (typically someone else's) python code, that you can use in your own program.
 
 def demo():  # demonstration of basic turtle commands
-    tom.speed(10)  # fastest: 10, slowest: 1
+    tom.speed(100)  # fastest: 10, slowest: 1
     for x in range(8):  # do the following for x = 0, 1, 2, 3, 4, 5, 6, 7
         tom.forward(50)  # move 50 pixels
         tom.left(45)  # turn 45 degrees left
@@ -47,7 +47,7 @@ def triangle_color(length, color):
 
 def many_squares(number_of_squares, size, distance):
     tom.penup()
-    tom.goto(150, 150)
+    tom.goto(100, 150)
     tom.pendown()
     tom.pencolor("red")
     for x in range(number_of_squares):
@@ -78,6 +78,85 @@ def draw_grid(columns, rows, size):
         tom.forward(size)
         tom.left(90)
 
+def draw_house():
+    tom.penup()
+    tom.goto(300, -150)
+    tom.pencolor("brown")
+    tom.pendown()
+    for x in range(4):
+        tom.forward(150)
+        tom.right(90)
+    for x in range(3):
+        tom.pencolor("black")
+        tom.forward(150)
+        tom.left(120)
+    tom.penup()
+    tom.forward(30)
+    tom.right(90)
+    tom.forward(100)
+    tom.pencolor("brown")
+    tom.pendown()
+    tom.forward(50)
+    tom.left(90)
+    tom.forward(25)
+    tom.left(90)
+    tom.forward(50)
+    tom.left(90)
+    tom.forward(25)
+    tom.penup()
+
+def spiral_square():
+    tom.goto(-400, 100)
+    tom.pencolor("black")
+    tom.pendown()
+    for x in range(100):
+        tom.forward(x)
+        tom.left(90)
+
+def stars():
+    tom.penup()
+    tom.goto(-400, -200)
+    tom.pendown()
+    for x in range(5):
+        tom.forward(100)
+        tom.left(144)
+    tom.penup()
+    tom.goto(-550, -200)
+    for x in range(7):
+        tom.pendown()
+        tom.forward(100)
+        tom.right(154)
+    tom.penup()
+    tom.goto(-460, -120)
+    for x in range(11):
+        tom.pendown()
+        tom.forward(100)
+        tom.left(160)
+
+def own_pattern():
+    tom.penup()
+    tom.goto(500, 100)
+    tom.pencolor("blue")
+    tom.pendown()
+    for x in range(5):
+        tom.forward(300)
+        tom.right(144)
+    tom.forward(115)
+    tom.right(36)
+    for x in range (5):
+        tom.forward(115)
+        tom.right(144)
+    tom.forward(45)
+    tom.right(36)
+    for x in range (5):
+        tom.forward(45)
+        tom.right(144)
+    tom.forward(17)
+    tom.right(36)
+    for x in range (5):
+        tom.forward(17)
+        tom.right(144)
+
 
 tom = turtle.Turtle()  # create an object named tom of type Turtle
 demo()
@@ -90,4 +169,8 @@ many_squares(6, 10, 20)
 many_circles()
 draw_square_at(100, -200, 0)
 draw_grid(5, 5, 20)
+draw_house()
+spiral_square()
+stars()
+own_pattern()
 turtle.done()  # keep the turtle window open after the program is done
