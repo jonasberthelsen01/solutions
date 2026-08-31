@@ -46,7 +46,7 @@ class Board:
             self.set_square_s(s, s)
 
     def make_spiral(self):
-        spiral = [(0,0)]
+        spiral = [(0, 0)]
 
         x = 0
         y = 0
@@ -54,29 +54,25 @@ class Board:
         distance = 1
 
         directions = [
-            (1, 0),  # 0 Højre
-            (0, 1),  # 1 Op
-            (-1, 0),  # 2 Venstre
-            (0, -1),  # 3 Ned
+            (1, 0),  # Højre
+            (0, 1),  # Op
+            (-1, 0),  # Venstre
+            (0, -1),  # Ned
         ]
 
-        # len(
-        for z in range(20):
+        while len(spiral) < self.size * self.size:
             dx, dy = directions[direction]
 
             for i in range(distance):
                 x = x + dx
                 y = y + dy
 
-                spiral.append((x, y))
+                if len(spiral) < self.size * self.size:
+                    spiral.append((x, y))
 
             direction = (direction + 1) % 4
-            # direction = direction + 1
 
-            # if direction == 4:
-            #     direction = 0
-
-            if z % 2 == 1:
+            if direction % 2 == 0:
                 distance = distance + 1
 
         return spiral
@@ -95,10 +91,27 @@ class Board:
 
         self.set_square(x, y, value)
 
+    def get_square_s(self, s):
+        x, y = self.spiral[s]
+
+        x = x + self.offset_x
+        y = self.offset_y - y
+
+        return self.get_square(x, y)
+
+    def s_to_xy(self, s):
+        return self.spiral[s]
+
+    def xy_to_s(self, x, y):
+        return self.spiral.index((x, y))
+
 board = Board(11)
 
 for row in board.board:
     print(row)
+
+board.s_to_xy(25)
+
 
 
 # flyt helle dannelsen af spiral in i init
@@ -122,3 +135,5 @@ en klasse brik, med attributer, position, bevægelse dx og dy
 function med input brik og output all truede fælter
 
 """
+class Piece:
+    pass
