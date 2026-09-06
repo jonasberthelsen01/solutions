@@ -42,7 +42,11 @@ class Board:
 
         self.spiral = self.make_spiral()
 
-        for s in range(len(self.spiral)):
+        self.xy_to_spiral = {}
+
+        for s, (x, y) in enumerate(self.spiral):
+            self.xy_to_spiral[(x, y)] = s
+
             self.set_square_s(s, s)
 
     def make_spiral(self):
@@ -103,21 +107,58 @@ class Board:
         return self.spiral[s]
 
     def xy_to_s(self, x, y):
-        return self.spiral.index((x, y))
+        return self.xy_to_spiral.get((x, y))
+
+
+
+
+class Piece:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def threatened_squares(self):
+        pass
+
+
+
+class Knight(Piece):
+
+    def __init__(self, x, y):
+        super().__init__(x, y)
+
+    def threatened_squares(self):
+        moves = [
+            (1, 2),
+            (2, 1),
+            (2, -1),
+            (1, -2),
+            (-1, -2),
+            (-2, -1),
+            (-1, 2),
+            (-2, 1)
+        ]
+
+        threatened = []
+
+        for dx, dy in moves:
+            threatened.append(
+                (self.x + dx, self.y + dy)
+            )
+
+        return threatened
+
+
 
 board = Board(11)
 
 for row in board.board:
     print(row)
 
-board.s_to_xy(25)
 
+knight = Knight(-1, 1)
 
-
-# flyt helle dannelsen af spiral in i init
-# get_square_s
-# actually lav en spiral af tal
-# gør så den nemt kans skifte mellem s tal (spiral tal), og x y tal
+print(knight.threatened_squares())
 
 """
 (-3,3) (-2,3) (-1,3)  (0,3)  (1,3)  (2,3)  (3,3)
@@ -135,5 +176,4 @@ en klasse brik, med attributer, position, bevægelse dx og dy
 function med input brik og output all truede fælter
 
 """
-class Piece:
-    pass
+
